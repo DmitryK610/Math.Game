@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+  
+    <h1>Математическая игра</h1>
+    <p>Напиши ответ и нажми Enter</p>
+    <p id="task1"></p>
+    <p id="task"></p>
+    <input type="text" id="answer" onkeydown="checkAnswer(event)">
+    <p id="timer"></p>
+    <button onclick="rebootTasks()">Перезапустить</button>
+    <p id="results"></p>
+</body>
+<script src="script.js"></script>
+</html>
