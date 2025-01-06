@@ -6,23 +6,22 @@ let timerInterval = setInterval(updateTimer, 1000);
 function generateTasks(num) {
     let tasks = [];
     for (let i = 0; i < num; i++) {
-        let num1 = Math.floor(Math.random() * 50) + 1; // 5 изменить на 50
-        let num2 = Math.floor(Math.random() * 50) + 1; // 5 изменить на 50
+        let num1 = Math.floor(Math.random() * 100) + 1; // 5 изменить на 50
+        let num2 = Math.floor(Math.random() * 100) + 1; // 5 изменить на 50
         let operation = Math.random() < 0.5 ? '+' : '-';
-
-        if (operation === '-') {
-            if (num1 < num2) {
-                let temp = num1;
-                num1 = num2;
-                num2 = temp;
-            }
-        }
+        if (operation === '-' && num1 < num2) { 
+            let temp = num1;
+            num1 = num2;
+            num2 = temp;
+        } else if ((num1+num2) > 100) {
+                    num1 = Math.floor(Math.random() * 50) + 10; // 5 изменить на 50
+                    num2 = Math.floor(Math.random() * 50) + 10; // 5 изменить на 50
+                };
         tasks.push({ num1, num2, operation });
-    }
+    };
 
     return tasks;
 };
-
 
 function showNextTask() {
     let task = tasks[currentTask];
@@ -64,7 +63,7 @@ function rebootTasks() {
     startTime = new Date().getTime();
     timerInterval = setInterval(updateTimer, 1000);
     showNextTask();
-   
+
 
 };
 function checkColor(time) {
@@ -82,7 +81,7 @@ function saveResult() {
     li.innerText = result;
     list.appendChild(li);
     localStorage.setItem('results', list.innerHTML);
-    
+
 };
 
 showNextTask();
