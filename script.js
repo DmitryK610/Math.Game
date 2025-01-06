@@ -13,10 +13,11 @@ function generateTasks(num) {
             let temp = num1;
             num1 = num2;
             num2 = temp;
-        } else if ((num1+num2) > 100) {
+             if ((num1+num2) > 100) {
                     num1 = Math.floor(Math.random() * 50) + 10; // 5 изменить на 50
                     num2 = Math.floor(Math.random() * 50) + 10; // 5 изменить на 50
                 };
+        };    
         tasks.push({ num1, num2, operation });
     };
 
